@@ -1,4 +1,4 @@
-export interface MovieUiResponse {
+export interface MovieUiModel {
   isAdult: boolean;
   backdropPath: string;
   genreIds: number[];
@@ -10,11 +10,12 @@ export interface MovieUiResponse {
   title: string;
   isVideoAvailable: boolean;
   voteCount: number;
+  thumbnailImage: string;
 }
 
 export interface GetMoviesUiResponse {
   currentPage: boolean;
-  results: MovieUiResponse[];
+  results: MovieUiModel[];
   totalPages: number;
   totalResults: number;
 }

@@ -1,10 +1,10 @@
 import { GetMoviesApiResponse, MovieApiResponse } from '../models/MoviesApi';
-import { GetMoviesUiResponse, MovieUiResponse } from '../models/MoviesUi';
+import { GetMoviesUiResponse, MovieUiModel } from '../models/MoviesUi';
 
 export function convertMoviesModelResponse(
   apiModel: MovieApiResponse[]
-): MovieUiResponse[] {
-  const movieUiResponse: MovieUiResponse[] = apiModel.map((movie) => {
+): MovieUiModel[] {
+  const movieUiResponse: MovieUiModel[] = apiModel.map((movie) => {
     return {
       isAdult: movie.adult,
       backdropPath: movie.backdrop_path,
@@ -17,6 +17,7 @@ export function convertMoviesModelResponse(
       title: movie.title,
       isVideoAvailable: movie.video,
       voteCount: movie.vote_count,
+      thumbnailImage: `https://image.tmdb.org/t/p/w185/${movie.backdrop_path}`,
     };
   });
 
